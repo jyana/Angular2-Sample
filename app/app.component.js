@@ -60,7 +60,7 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
                     core_1.Component({
                         selector: 'mainroot',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<a [routerLink]=\"['/Home']\">Home</a>\n\n              <a [routerLink]=\"['/Test']\">Login</a>\n\n              <router-outlet></router-outlet>\n\n              "
+                        template: "<a [routerLink]=\"['/Home']\">Home</a>\n\n              <a [routerLink]=\"['/Test']\">Loginns</a>\n\n              <router-outlet></router-outlet>\n\n              "
                     }),
                     router_1.RouteConfig([
                         { path: '/', component: AppComponent, as: 'Home' },

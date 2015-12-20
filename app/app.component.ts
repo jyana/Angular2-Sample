@@ -27,7 +27,7 @@ export class TestSelect {}
   directives: [ROUTER_DIRECTIVES],
   template: `<a [routerLink]="['/Home']">Home</a>
 
-              <a [routerLink]="['/Test']">Login</a>
+              <a [routerLink]="['/Test']">Loginns</a>
 
               <router-outlet></router-outlet>
 
