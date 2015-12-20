@@ -67,7 +67,7 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
                         { path: '/', component: AppComponent, as: 'home' },
                         { path: '/login', component: AppComponent, as: 'login' },
                         { path: '/dashboard', component: TestSelect, as: 'dashboard' },
-                        { path: '/logout', component: TestSelect, as: 'dashboard' }
+                        { path: '/logout', component: TestSelect, as: 'logout' }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], RootComponent);
