@@ -1,30 +1,49 @@
-import {Component, View} from 'angular2/core';
-import {Hero} from './hero';
-import {HeroDetailComponent} from './hero-detail.component';
-import {TemplateComp} from './test-comp';
+import {Component, View, provide} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser'
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS,LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
+
+/* my-app start */
 @Component({
 	selector: 'my-app',
-	templateUrl: "app/views/home/home.html",
-  directives: [HeroDetailComponent, TemplateComp]
+	templateUrl: "app/views/home/appcomp.html"
 })
-export class AppComponent {
-	public title = 'Tour of Heroes';
-  public heroes = HEROES;
-  public selectedHero: Hero;
+export class AppComponent{}
+/* my-app end */
 
-  onSelect(hero: Hero) { this.selectedHero = hero; }
+/*TestSelect start */
+@Component({
+  selector: 'test-select',
+  templateUrl: "app/views/home/test.html"
+})
+
+
+export class TestSelect {}
+/*TestSelect end */
+
+/* mainroot start */
+@Component({
+  selector: 'mainroot',
+  directives: [ROUTER_DIRECTIVES],
+  template: `<a [routerLink]="['/Home']">About Us</a>
+
+              <a [routerLink]="['/Test']">Contact Us</a>
+
+              <router-outlet></router-outlet>
+
+              `
+
+})
+
+@RouteConfig([
+	{path: '/',	component: AppComponent,	as:	'Home'},
+  {path: '/Home',	component: AppComponent,	as:	'Home'},
+  {path: '/Test',	component: TestSelect,	as:	'Test'}
+])
+
+class RootComponent {
+
 }
 
-var HEROES: Hero[] = [
-  { "id": 11, "name": "Mr. Nice" },
-  { "id": 12, "name": "Narco" },
-  { "id": 13, "name": "Bombasto" },
-  { "id": 14, "name": "Celeritas" },
-  { "id": 15, "name": "Magneta" },
-  { "id": 16, "name": "RubberMan" },
-  { "id": 17, "name": "Dynama" },
-  { "id": 18, "name": "Dr IQ" },
-  { "id": 19, "name": "Magma" },
-  { "id": 20, "name": "Tornado" }
-];
+/* mainroot end*/
+bootstrap(RootComponent, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);

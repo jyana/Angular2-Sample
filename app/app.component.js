@@ -1,4 +1,4 @@
-System.register(['angular2/core', './hero-detail.component', './test-comp'], function(exports_1) {
+System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,49 +8,71 @@ System.register(['angular2/core', './hero-detail.component', './test-comp'], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_detail_component_1, test_comp_1;
-    var AppComponent, HEROES;
+    var core_1, browser_1, router_1;
+    var AppComponent, TestSelect, RootComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (hero_detail_component_1_1) {
-                hero_detail_component_1 = hero_detail_component_1_1;
+            function (browser_1_1) {
+                browser_1 = browser_1_1;
             },
-            function (test_comp_1_1) {
-                test_comp_1 = test_comp_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
+            /* my-app start */
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Tour of Heroes';
-                    this.heroes = HEROES;
                 }
-                AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        templateUrl: "app/views/home/home.html",
-                        directives: [hero_detail_component_1.HeroDetailComponent, test_comp_1.TemplateComp]
+                        templateUrl: "app/views/home/appcomp.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             })();
             exports_1("AppComponent", AppComponent);
-            HEROES = [
-                { "id": 11, "name": "Mr. Nice" },
-                { "id": 12, "name": "Narco" },
-                { "id": 13, "name": "Bombasto" },
-                { "id": 14, "name": "Celeritas" },
-                { "id": 15, "name": "Magneta" },
-                { "id": 16, "name": "RubberMan" },
-                { "id": 17, "name": "Dynama" },
-                { "id": 18, "name": "Dr IQ" },
-                { "id": 19, "name": "Magma" },
-                { "id": 20, "name": "Tornado" }
-            ];
+            /* my-app end */
+            /*TestSelect start */
+            TestSelect = (function () {
+                function TestSelect() {
+                }
+                TestSelect = __decorate([
+                    core_1.Component({
+                        selector: 'test-select',
+                        templateUrl: "app/views/home/test.html"
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], TestSelect);
+                return TestSelect;
+            })();
+            exports_1("TestSelect", TestSelect);
+            /*TestSelect end */
+            /* mainroot start */
+            RootComponent = (function () {
+                function RootComponent() {
+                }
+                RootComponent = __decorate([
+                    core_1.Component({
+                        selector: 'mainroot',
+                        directives: [router_1.ROUTER_DIRECTIVES],
+                        template: "<a [routerLink]=\"['/Home']\">About Us</a>\n\n              <a [routerLink]=\"['/Test']\">Contact Us</a>\n\n              <router-outlet></router-outlet>\n\n              "
+                    }),
+                    router_1.RouteConfig([
+                        { path: '/', component: AppComponent, as: 'Home' },
+                        { path: '/Home', component: AppComponent, as: 'Home' },
+                        { path: '/Test', component: TestSelect, as: 'Test' }
+                    ]), 
+                    __metadata('design:paramtypes', [])
+                ], RootComponent);
+                return RootComponent;
+            })();
+            /* mainroot end*/
+            browser_1.bootstrap(RootComponent, [router_1.ROUTER_PROVIDERS, core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);
         }
     }
 });
