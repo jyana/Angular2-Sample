@@ -1,4 +1,5 @@
 System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,12 +61,13 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
                     core_1.Component({
                         selector: 'mainroot',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<a [routerLink]=\"['/Home']\">Home</a>\n\n              <a [routerLink]=\"['/Test']\">Loginns</a>\n\n              <router-outlet></router-outlet>\n\n              "
+                        template: "<a [routerLink]=\"['/home']\">Home</a>\n\n              <a [routerLink]=\"['/login']\">Login</a>\n\n\t\t\t\t\t\t\t<a [routerLink]=\"['/dashboard']\">Dashboard</a>\n\n\t\t\t\t\t\t\t<a [routerLink]=\"['/logout']\">Logout</a>\n\n              <router-outlet></router-outlet>\n\n              "
                     }),
                     router_1.RouteConfig([
-                        { path: '/', component: AppComponent, as: 'Home' },
-                        { path: '/Home', component: AppComponent, as: 'Home' },
-                        { path: '/Test', component: TestSelect, as: 'Test' }
+                        { path: '/', component: AppComponent, as: 'home' },
+                        { path: '/login', component: AppComponent, as: 'login' },
+                        { path: '/dashboard', component: TestSelect, as: 'dashboard' },
+                        { path: '/logout', component: TestSelect, as: 'dashboard' }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], RootComponent);
