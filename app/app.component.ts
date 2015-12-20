@@ -25,9 +25,13 @@ export class TestSelect {}
 @Component({
   selector: 'mainroot',
   directives: [ROUTER_DIRECTIVES],
-  template: `<a [routerLink]="['/Home']">Home</a>
+  template: `<a [routerLink]="['/home']">Home</a>
 
-              <a [routerLink]="['/Test']">Loginns</a>
+              <a [routerLink]="['/login']">Login</a>
+
+							<a [routerLink]="['/dashboard']">Dashboard</a>
+
+							<a [routerLink]="['/logout']">Logout</a>
 
               <router-outlet></router-outlet>
 
@@ -36,9 +40,10 @@ export class TestSelect {}
 })
 
 @RouteConfig([
-	{path: '/',	component: AppComponent,	as:	'Home'},
-  {path: '/Home',	component: AppComponent,	as:	'Home'},
-  {path: '/Test',	component: TestSelect,	as:	'Test'}
+	{path: '/',	component: AppComponent,	as:	'home'},
+  {path: '/login',	component: AppComponent,	as:	'login'},
+  {path: '/dashboard',	component: TestSelect,	as:	'dashboard'},
+	{path: '/logout', component: TestSelect,  as: 'dashboard'}
 ])
 
 class RootComponent {
