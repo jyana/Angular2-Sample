@@ -43,7 +43,7 @@ export class TestSelect {}
 	{path: '/',	component: AppComponent,	as:	'home'},
   {path: '/login',	component: AppComponent,	as:	'login'},
   {path: '/dashboard',	component: TestSelect,	as:	'dashboard'},
-	{path: '/logout', component: TestSelect,  as: 'dashboard'}
+	{path: '/logout', component: TestSelect,  as: 'logout'}
 ])
 
 class RootComponent {
