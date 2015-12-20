@@ -25,9 +25,9 @@ export class TestSelect {}
 @Component({
   selector: 'mainroot',
   directives: [ROUTER_DIRECTIVES],
-  template: `<a [routerLink]="['/Home']">About Us</a>
+  template: `<a [routerLink]="['/Home']">Home</a>
 
-              <a [routerLink]="['/Test']">Contact Us</a>
+              <a [routerLink]="['/Test']">Login</a>
 
               <router-outlet></router-outlet>
 
