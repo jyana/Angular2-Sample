@@ -1,4 +1,5 @@
 System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,7 +61,7 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
                     core_1.Component({
                         selector: 'mainroot',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<a [routerLink]=\"['/Home']\">Home</a>\n\n              <a [routerLink]=\"['/Test']\">Login</a>\n\n              <router-outlet></router-outlet>\n\n              "
+                        template: "<a [routerLink]=\"['/Home']\">Home</a>\n\n              <a [routerLink]=\"['/Test']\">Logins</a>\n\n              <router-outlet></router-outlet>\n\n              "
                     }),
                     router_1.RouteConfig([
                         { path: '/', component: AppComponent, as: 'Home' },
