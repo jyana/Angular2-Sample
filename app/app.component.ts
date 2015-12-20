@@ -1,49 +1,63 @@
 import {Component, View, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser'
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS,LocationStrategy, HashLocationStrategy} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 
 /* my-app start */
 @Component({
-	selector: 'my-app',
-	templateUrl: "app/views/home/appcomp.html"
+  selector: 'my-app',
+  templateUrl: "app/views/home/appcomp.html"
 })
-export class AppComponent{}
+export class AppComponent { }
 /* my-app end */
 
 /*TestSelect start */
 @Component({
-  selector: 'test-select',
-  templateUrl: "app/views/home/test.html"
+  selector: 'login',
+  templateUrl: "app/views/home/login.html"
 })
 
 
-export class TestSelect {}
+export class LoginComponent { }
+/*TestSelect end */
+
+/*TestSelect start */
+@Component({
+  selector: 'dashboard',
+  templateUrl: "app/views/home/dashboard.html"
+})
+
+
+export class DashboardComponent { }
+/*TestSelect end */
+
+/*TestSelect start */
+@Component({
+  selector: 'logout',
+  templateUrl: "app/views/home/logout.html"
+})
+
+export class LogoutComponent { }
 /*TestSelect end */
 
 /* mainroot start */
 @Component({
   selector: 'mainroot',
   directives: [ROUTER_DIRECTIVES],
-  template: `<a [routerLink]="['/home']">Home</a>
-
-              <a [routerLink]="['/login']">Login</a>
-
-							<a [routerLink]="['/dashboard']">Dashboard</a>
-
-							<a [routerLink]="['/logout']">Logout</a>
-
-              <router-outlet></router-outlet>
-
-              `
-
+  template: `<a [routerLink]="['Home']">Home</a>
+            <a [routerLink]="['Login']">Login</a>
+						<a [routerLink]="['Dashboard']">Dashboard</a>
+						<a [routerLink]="['Logout']">Logout</a>
+            <router-outlet></router-outlet>
+            `
 })
 
 @RouteConfig([
-	{path: '/',	component: AppComponent,	as:	'home'},
-  {path: '/login',	component: AppComponent,	as:	'login'},
-  {path: '/dashboard',	component: TestSelect,	as:	'dashboard'},
-	{path: '/logout', component: TestSelect,  as: 'logout'}
+  { path: '/', component: AppComponent, as: 'Default'},
+  { path: '/home', component: AppComponent, as: 'Home'},
+  { path: '/login', component: LoginComponent, as: 'Login'},
+  { path: '/dashboard', component: DashboardComponent, as: 'Dashboard'},
+  { path: '/logout', component: LogoutComponent, as: 'Logout'}
 ])
 
 class RootComponent {
@@ -51,4 +65,4 @@ class RootComponent {
 }
 
 /* mainroot end*/
-bootstrap(RootComponent, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+bootstrap(RootComponent, [ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy })]);

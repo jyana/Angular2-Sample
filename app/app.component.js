@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, browser_1, router_1;
-    var AppComponent, TestSelect, RootComponent;
+    var AppComponent, LoginComponent, DashboardComponent, LogoutComponent, RootComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -39,19 +39,49 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
             exports_1("AppComponent", AppComponent);
             /* my-app end */
             /*TestSelect start */
-            TestSelect = (function () {
-                function TestSelect() {
+            LoginComponent = (function () {
+                function LoginComponent() {
                 }
-                TestSelect = __decorate([
+                LoginComponent = __decorate([
                     core_1.Component({
-                        selector: 'test-select',
-                        templateUrl: "app/views/home/test.html"
+                        selector: 'login',
+                        templateUrl: "app/views/home/login.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], TestSelect);
-                return TestSelect;
+                ], LoginComponent);
+                return LoginComponent;
             })();
-            exports_1("TestSelect", TestSelect);
+            exports_1("LoginComponent", LoginComponent);
+            /*TestSelect end */
+            /*TestSelect start */
+            DashboardComponent = (function () {
+                function DashboardComponent() {
+                }
+                DashboardComponent = __decorate([
+                    core_1.Component({
+                        selector: 'dashboard',
+                        templateUrl: "app/views/home/dashboard.html"
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], DashboardComponent);
+                return DashboardComponent;
+            })();
+            exports_1("DashboardComponent", DashboardComponent);
+            /*TestSelect end */
+            /*TestSelect start */
+            LogoutComponent = (function () {
+                function LogoutComponent() {
+                }
+                LogoutComponent = __decorate([
+                    core_1.Component({
+                        selector: 'logout',
+                        templateUrl: "app/views/home/logout.html"
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], LogoutComponent);
+                return LogoutComponent;
+            })();
+            exports_1("LogoutComponent", LogoutComponent);
             /*TestSelect end */
             /* mainroot start */
             RootComponent = (function () {
@@ -61,13 +91,14 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
                     core_1.Component({
                         selector: 'mainroot',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<a [routerLink]=\"['/home']\">Home</a>\n\n              <a [routerLink]=\"['/login']\">Login</a>\n\n\t\t\t\t\t\t\t<a [routerLink]=\"['/dashboard']\">Dashboard</a>\n\n\t\t\t\t\t\t\t<a [routerLink]=\"['/logout']\">Logout</a>\n\n              <router-outlet></router-outlet>\n\n              "
+                        template: "<a [routerLink]=\"['Home']\">Home</a>\n            <a [routerLink]=\"['Login']\">Login</a>\n\t\t\t\t\t\t<a [routerLink]=\"['Dashboard']\">Dashboard</a>\n\t\t\t\t\t\t<a [routerLink]=\"['Logout']\">Logout</a>\n            <router-outlet></router-outlet>\n            "
                     }),
                     router_1.RouteConfig([
-                        { path: '/', component: AppComponent, as: 'home' },
-                        { path: '/login', component: AppComponent, as: 'login' },
-                        { path: '/dashboard', component: TestSelect, as: 'dashboard' },
-                        { path: '/logout', component: TestSelect, as: 'logout' }
+                        { path: '/', component: AppComponent, as: 'Default' },
+                        { path: '/home', component: AppComponent, as: 'Home' },
+                        { path: '/login', component: LoginComponent, as: 'Login' },
+                        { path: '/dashboard', component: DashboardComponent, as: 'Dashboard' },
+                        { path: '/logout', component: LogoutComponent, as: 'Logout' }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], RootComponent);
